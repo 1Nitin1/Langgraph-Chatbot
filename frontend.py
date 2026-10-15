@@ -3,7 +3,7 @@ from backend import chatbot
 from langchain_core.messages import HumanMessage
 
 # thread id
-thread_id = 'chatbot_thread'
+thread_id = 'chatbot_thread1'
 
 # initialize if empty
 if 'message_history' not in st.session_state:
@@ -34,7 +34,11 @@ if user_input:
 
     # show response
     with st.chat_message('ai'):
-        st.text(response)
+        response=st.write_stream(
+            message_chunk.content for message_chunk,_ in chatbot.stream({'messages':[HumanMessage(content=user_input)]}, 
+            config={'configurable': {'thread_id': thread_id}},
+            stream_mode='messages')
+        )
 
 
     # save response
