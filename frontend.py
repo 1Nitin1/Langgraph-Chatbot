@@ -28,9 +28,7 @@ if user_input:
     # save input
     st.session_state['message_history'].append({'role': 'user', 'content': user_input})
 
-    # get response from chatbot
-    result = chatbot.invoke({'messages':[HumanMessage(content=user_input)]}, config={'configurable': {'thread_id': thread_id}})
-    response = result['messages'][-1].content
+   
 
     # show response
     with st.chat_message('ai'):
