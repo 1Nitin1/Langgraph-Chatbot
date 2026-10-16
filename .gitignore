@@ -1,2 +1,7 @@
 .git
 .env
+"Final Chatbot/.env"
+"Final Chatbot/__pycache__"
+"Final Chatbot/chatbot.db"
+"Final Chatbot/chatbot.db-wal"
+"Final Chatbot/chatbot.db-shm"
